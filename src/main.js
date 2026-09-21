@@ -20,9 +20,18 @@ document.querySelector("#app").innerHTML = `
 `;
 
 const contUsers = document.querySelector("#allUsers");
+const contAdmins = document.querySelector("#admins");
+
+const admins = users.filter((user) => user.isAdmin);
 
 users.forEach((user) => {
   const li = document.createElement("li");
   li.textContent = `${user.name} - isAdmin: ${user.isAdmin}`;
   contUsers.appendChild(li);
+});
+
+admins.forEach((admin) => {
+  const li = document.createElement("li");
+  li.textContent = `${admin.name} - isAdmin: ${admin.isAdmin}`;
+  contAdmins.appendChild(li);
 });
