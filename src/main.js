@@ -21,6 +21,7 @@ document.querySelector("#app").innerHTML = `
 
 const contUsers = document.querySelector("#allUsers");
 const contAdmins = document.querySelector("#admins");
+const searchIn = document.querySelector("#searchInput");
 
 const admins = users.filter((user) => user.isAdmin);
 
@@ -35,3 +36,17 @@ function renderUsers(listUsers, container) {
 
 renderUsers(users, contUsers);
 renderUsers(admins, contAdmins);
+
+searchIn.addEventListener("input", (event) => {
+  const search = event.target.value.trim().toLowerCase();
+
+  const usersFilter = users.filter((user) =>
+    user.name.toLowerCase().includes(search),
+  );
+  renderUsers(usersFilter, contUsers);
+
+  const adminsFilter = admins.filter((user) =>
+    user.name.toLowerCase().includes(search),
+  );
+  renderUsers(adminsFilter, contAdmins);
+});
