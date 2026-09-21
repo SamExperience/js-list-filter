@@ -26,6 +26,10 @@ const searchIn = document.querySelector("#searchInput");
 const admins = users.filter((user) => user.isAdmin);
 
 function renderUsers(listUsers, container) {
+  if (!listUsers || listUsers.length === 0) {
+    container.textContent = "No users found";
+    return;
+  }
   container.innerHTML = "";
   listUsers.forEach((user) => {
     const li = document.createElement("li");
