@@ -1,3 +1,7 @@
+/**
+ * Array of user objects containing user information and administrative status.
+ * @type {Array<{id: number, name: string, isAdmin: boolean}>}
+ */
 export const users = [
   {
     id: 1,
