@@ -24,14 +24,14 @@ const contAdmins = document.querySelector("#admins");
 
 const admins = users.filter((user) => user.isAdmin);
 
-users.forEach((user) => {
-  const li = document.createElement("li");
-  li.textContent = `${user.name} - isAdmin: ${user.isAdmin}`;
-  contUsers.appendChild(li);
-});
+function renderUsers(listUsers, container) {
+  container.innerHTML = "";
+  listUsers.forEach((user) => {
+    const li = document.createElement("li");
+    li.textContent = `${user.name} - isAdmin: ${user.isAdmin}`;
+    container.appendChild(li);
+  });
+}
 
-admins.forEach((admin) => {
-  const li = document.createElement("li");
-  li.textContent = `${admin.name} - isAdmin: ${admin.isAdmin}`;
-  contAdmins.appendChild(li);
-});
+renderUsers(users, contUsers);
+renderUsers(admins, contAdmins);
